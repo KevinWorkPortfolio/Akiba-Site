@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendita Carte Singole - Magic Akiba</title>
+    <!-- Favicon integrata (Controller Gaming) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e03d4b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='6' width='20' height='12' rx='2'/><path d='M6 12h4'/><path d='M8 10v4'/><path d='M15 11h.01'/><path d='M18 13h.01'/></svg>">
+    <!-- Tailwind CSS per uno styling moderno -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Inter per una leggibilità premium -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Icone Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        akiba: {
+                            50: '#fff5f5',
+                            100: '#ffe3e3',
+                            500: '#e03d4b', // Il rosso caldo distintivo di Magic Akiba
+                            600: '#c82e3a',
+                            700: '#a6202a',
+                            900: '#5c0f15'
+                        },
+                        cozy: {
+                            50: '#faf9f6',  // Bianco caldo / avorio per uno sfondo umano e morbido
+                            100: '#f4f3ef', // Grigio caldo chiarissimo per separare le sezioni
+                            200: '#e8e6e0',
+                            700: '#44403c', // Grigio pietra per i testi secondari
+                            800: '#292524', // Grigio scuro per i testi principali
+                            900: '#1c1917'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #faf9f6; /* Sfondo bianco caldo */
+        }
+        /* Scrollbar morbida in stile rosso coordinato */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f4f3ef;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e03d4b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c82e3a;
+        }
+    </style>
+</head>
+<body class="text-stone-800 min-h-screen flex flex-col overflow-x-hidden antialiased bg-cozy-50">
+
+    <!-- NAVBAR PRINCIPALE (Tema Chiaro: Bianco e Rosso) -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo e Brand -->
+                <div class="flex items-center gap-3 flex-shrink-0">
+                    <a href="index.html" class="flex items-center gap-3 group">
+                        <img src="LogoAkiba.png" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/180x60/fef2f2/e03d4b?text=Magic+Akiba'" 
+                             alt="Magic Akiba Logo" 
+                             class="h-14 w-auto object-contain group-hover:scale-[1.03] transition-transform duration-300">
+                    </a>
+                </div>
+
+                <!-- Navigazione Desktop Chiara -->
+                <nav class="flex space-x-2">
+                    <a href="index.html" class="px-4 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:text-akiba-500 hover:bg-stone-100/80 transition-all flex items-center gap-2">
+                        <i data-lucide="home" class="w-4 h-4"></i>
+                        Home
+                    </a>
+                    <a href="chisiamo.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                        <i data-lucide="users" class="w-4 h-4"></i>
+                        Chi Siamo
+                    </a>
+                    <a href="giochi.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                        <i data-lucide="dices" class="w-4 h-4"></i>
+                        Giochi
+                    </a>
+                    <a href="eventi.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                        <i data-lucide="dices" class="w-4 h-4"></i>
+                        News
+                    </a>
+                    <a href="eventi2.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                        <i data-lucide="calendar-days" class="w-4 h-4"></i>
+                        Eventi
+                    </a>
+                    <a href="cardmarketshop.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                        <i data-lucide="banknote" class="w-4 h-4"></i>
+                       Vendita Carte Singole
+                    </a>
+                    <a href="paginavuota.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                        <i data-lucide="flask-conical" class="w-4 h-4"></i>
+                       ???
+                    </a>
+                </nav>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Spiegazione Intelligente del Carrello Cardmarket -->
+            <div class="bg-gradient-to-r from-red-500/10 via-akiba-50 to-red-500/10 border border-akiba-100 p-6 rounded-3xl mb-12 max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-6">
+                <div class="p-4 bg-white rounded-2xl shadow-sm text-center flex-shrink-0">
+                    <span class="text-3xl">🛡️</span>
+                </div>
+                <div class="space-y-2">
+                    <h3 class="font-bold text-lg text-stone-900 flex items-center gap-2">
+                        Acquisti su Cardmarket in Totale Sicurezza
+                    </h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">
+                        Seleziona la sezione del gioco che preferisci qui sotto. Cliccando sulle immagini verrai reindirizzato direttamente al catalogo pre-filtrato di <strong>Magic Akiba</strong> all'interno del portale ufficiale di <strong>Cardmarket</strong>. Potrai fare i tuoi acquisti comodamente godendo della massima protezione acquirente!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Titolo di sezione -->
+            <div class="text-center mb-16">
+                <span class="inline-block px-3 py-1 bg-akiba-50 text-akiba-500 rounded-full text-xs font-bold tracking-wider mb-3">CARDMARKET STORE HUB</span>
+                <h1 class="text-3xl sm:text-4xl font-black text-stone-900 mb-4">Sfoglia i prodotti presenti nel nostro inventario</h1>
+                <p class="text-base text-stone-600 max-w-xl mx-auto">
+                    Scegli il tuo gioco di carte collezionabili preferito ed entra direttamente nel nostro store dedicato su Cardmarket.
+                </p>
+            </div>
+
+            <!-- Griglia dei Risultati (4 Grandi Card Fotografiche) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                
+                <!-- CARD 1: MAGIC THE GATHERING -->
+                <div class="group relative overflow-hidden rounded-3xl border border-stone-200 bg-white p-3 shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between">
+                    <a href="https://www.cardmarket.com/it/Magic/Users/Thokoashi" target="_blank" class="block flex-grow">
+                        <div class="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-stone-100 mb-4">
+                            <img src="https://i.redd.it/gdur454t905z.jpg" 
+                                 onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e1e1e/ffffff?text=Magic+The+Gathering'" 
+                                 alt="Magic: The Gathering Singole" 
+                                 class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <!-- Overlay Scuro Gradiente -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                            <!-- Logo / Badge sopra l'immagine -->
+                            <span class="absolute bottom-4 left-4 text-white font-extrabold text-lg flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-yellow-500"></span> MTG Singole
+                            </span>
+                        </div>
+                    </a>
+                    <div class="px-2 pb-2">
+                        <h3 class="font-bold text-lg text-stone-900 mb-1">Magic: The Gathering</h3>
+                        <p class="text-xs text-stone-500 mb-4">Terre, mitiche, foil e formati competitive/commander sempre aggiornati.</p>
+                        <a href="https://www.cardmarket.com/it/Magic/Users/Thokoashi" target="_blank" class="w-full py-3 px-4 bg-stone-900 hover:bg-akiba-500 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 transition-all shadow-md">
+                            <span>Sfoglia su Cardmarket</span>
+                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 2: POKÉMON -->
+                <div class="group relative overflow-hidden rounded-3xl border border-stone-200 bg-white p-3 shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between">
+                    <a href="https://www.cardmarket.com/it/Pokemon/Users/Thokoashi" target="_blank" class="block flex-grow">
+                        <div class="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-stone-100 mb-4">
+                            <img src="https://efour.b-cdn.net/uploads/default/original/3X/2/b/2bbf8795b9ccbe1792761bb87b3074dcfbeb0d45.jpeg" 
+                                 onerror="this.onerror=null; this.src='https://placehold.co/600x400/ffcb05/003a70?text=Pokemon+TCG'" 
+                                 alt="Pokémon TCG Singole" 
+                                 class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-white font-extrabold text-lg flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-red-400"></span> Pokémon TCG
+                            </span>
+                        </div>
+                    </a>
+                    <div class="px-2 pb-2">
+                        <h3 class="font-bold text-lg text-stone-900 mb-1">Pokémon TCG</h3>
+                        <p class="text-xs text-stone-500 mb-4">Fuoriserie, carte allenatore e i mostriciattoli più rari in stock.</p>
+                        <a href="https://www.cardmarket.com/it/Pokemon/Users/Thokoashi" target="_blank" class="w-full py-3 px-4 bg-stone-900 hover:bg-akiba-500 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 transition-all shadow-md">
+                            <span>Sfoglia su Cardmarket</span>
+                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 3: ONE PIECE -->
+                <div class="group relative overflow-hidden rounded-3xl border border-stone-200 bg-white p-3 shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between">
+                    <a href="https://www.cardmarket.com/it/OnePiece/Users/Thokoashi" target="_blank" class="block flex-grow">
+                        <div class="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-stone-100 mb-4">
+                            <img src="https://i.ytimg.com/vi/7rUc5NzwOQ8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAFH57Ca1kfSjQyhKm-73JUIXQPiA" 
+                                 onerror="this.onerror=null; this.src='https://placehold.co/600x400/003264/ffffff?text=One+Piece+TCG'" 
+                                 alt="One Piece Singole" 
+                                 class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-white font-extrabold text-lg flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-green-500"></span> One Piece
+                            </span>
+                        </div>
+                    </a>
+                    <div class="px-2 pb-2">
+                        <h3 class="font-bold text-lg text-stone-900 mb-1">One Piece Card Game</h3>
+                        <p class="text-xs text-stone-500 mb-4">Leader, SR, SEC e carte promozionali dall'universo di Eiichiro Oda.</p>
+                        <a href="https://www.cardmarket.com/it/OnePiece/Users/Thokoashi" target="_blank" class="w-full py-3 px-4 bg-stone-900 hover:bg-akiba-500 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 transition-all shadow-md">
+                            <span>Sfoglia su Cardmarket</span>
+                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 4: VANGUARD -->
+                <div class="group relative overflow-hidden rounded-3xl border border-stone-200 bg-white p-3 shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between">
+                    <a href="https://www.cardmarket.com/it/Vanguard/Users/Thokoashi" target="_blank" class="block flex-grow">
+                        <div class="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-stone-100 mb-4">
+                            <img src="https://i.namu.wiki/i/P0WMbyf1VB1T9tygE7qWro9CuVFgaiV5bwCe3bdgPlNyf5XZHt-5bC5LoNaDS8m85wPkoBHkxG86nZMNu7COeA.webp" 
+                                 onerror="this.onerror=null; this.src='https://placehold.co/600x400/008080/ffffff?text=Cardfight+Vanguard'" 
+                                 alt="Vanguard Singole" 
+                                 class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                            <span class="absolute bottom-4 left-4 text-white font-extrabold text-lg flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-blue-500"></span> Vanguard
+                            </span>
+                        </div>
+                    </a>
+                    <div class="px-2 pb-2">
+                        <h3 class="font-bold text-lg text-stone-900 mb-1">Cardfight!! Vanguard</h3>
+                        <p class="text-xs text-stone-500 mb-4">Unità Overdress, Premium e supporti rari targati Bushiroad.</p>
+                        <a href="https://www.cardmarket.com/it/Vanguard/Users/Thokoashi" target="_blank" class="w-full py-3 px-4 bg-stone-900 hover:bg-akiba-500 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 transition-all shadow-md">
+                            <span>Sfoglia su Cardmarket</span>
+                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER E INFO FISICHE (Tema Bianco e Rosso) -->
+    <footer id="contatti" class="bg-white border-t border-stone-200 py-16 text-stone-600 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-12">
+                
+                <!-- Colonna di Benvenuto Brand -->
+                <div class="lg:col-span-5 space-y-4">
+                    <img src="LogoAkiba.png" onerror="this.onerror=null; this.src='https://placehold.co/180x60/fef2f2/e03d4b?text=Magic+Akiba'" alt="Magic Akiba Logo" class="h-16 w-auto object-contain mb-4">
+                    <p class="text-stone-600 text-base leading-relaxed max-w-sm">
+                    </p>
+                </div>
+
+    <!-- Icone Social aggiornate nel Footer -->
+                    <div class="flex gap-3 pt-2">
+                        <a href="https://www.facebook.com/magic.akiba98/?locale=it_IT" target="_blank" class="p-3 bg-stone-50 hover:bg-blue-600 hover:text-white text-stone-600 rounded-xl transition-all border border-stone-100">
+                            <i data-lucide="message-square-heart" class="w-5 h-5"></i>
+                            <span class="text-stone-700 font-semibold">Facebook</span>
+                        </a>
+                        <a href="https://www.instagram.com/magicakiba/" target="_blank" class="p-3 bg-stone-50 hover:bg-akiba-500 hover:text-white text-stone-600 rounded-xl transition-all border border-stone-100">
+                            <i data-lucide="circle-fading-plus" class="w-5 h-5"></i>
+                            <span class="text-stone-700 font-semibold">Instagram</span>
+                        </a>
+                        <a href="https://wa.me/393204821572" target="_blank" class="p-3 bg-stone-50 hover:bg-emerald-500 hover:text-white text-stone-600 rounded-xl transition-all border border-stone-100">
+                            <i data-lucide="message-square" class="w-5 h-5"></i>
+                            <span class="text-stone-700 font-semibold">WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Colonna Contatti -->
+                <div class="lg:col-span-3 space-y-5">
+                    <h4 class="text-stone-900 font-bold text-lg">Contatti & Sede</h4>
+                    
+                    <div class="space-y-4 text-sm">
+                        <a href="https://maps.google.com/?q=Via+Palmiro+Togliatti+4+Mariano+Comense" target="_blank" class="flex items-start gap-3 group">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-akiba-500 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform"></i> 
+                            <span class="text-stone-600 group-hover:text-akiba-500 transition-colors">
+                                Via Palmiro Togliatti, 86,<br>
+                                22066 Mariano Comense (CO)<br>
+                            </span>
+                        </a>
+                        
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-akiba-500 flex-shrink-0"></i> 
+                            <span class="text-stone-800 font-semibold">+39 320 482 1572</span>
+                        </div>
+                        
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-akiba-500 flex-shrink-0"></i> 
+                            <span class="text-stone-600">magic.akiba@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="border-t border-stone-200 pt-8 text-center text-xs text-stone-400">
+                <p>&copy; 2017 - 2026 Magic Akiba di FABIO BIANCHINI - P.IVA 02449480462.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGICA DI BASE -->
+    <script>
+        // Al caricamento della pagina inizializza le icone Lucide
+        window.onload = function() {
+            lucide.createIcons();
+        };
+    </script>
+</body>
+</html>

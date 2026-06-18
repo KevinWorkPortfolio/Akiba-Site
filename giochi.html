@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giochi - Magic Akiba</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- Tailwind CSS per uno styling moderno e super veloce -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Inter per una leggibilità premium -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Icone Lucide per simboli puliti ed eleganti -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        akiba: {
+                            50: '#fff5f5',
+                            100: '#ffe3e3',
+                            500: '#e03d4b', // Il rosso caldo distintivo di Magic Akiba
+                            600: '#c82e3a',
+                            700: '#a6202a',
+                            900: '#5c0f15'
+                        },
+                        cozy: {
+                            50: '#faf9f6',  // Bianco caldo / avorio per uno sfondo umano e morbido
+                            100: '#f4f3ef', // Grigio caldo chiarissimo per separare le sezioni
+                            200: '#e8e6e0',
+                            700: '#44403c', // Grigio pietra per i testi secondari
+                            800: '#292524', // Grigio scuro per i testi principali
+                            900: '#1c1917'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #faf9f6; /* Sfondo bianco caldo */
+        }
+        /* Scrollbar morbida in stile rosso coordinato */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f4f3ef;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e03d4b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c82e3a;
+        }
+    </style>
+</head>
+<body class="text-stone-800 min-h-screen flex flex-col overflow-x-hidden antialiased bg-cozy-50">
+
+    <!-- NAVBAR PRINCIPALE (Tema Chiaro: Bianco e Rosso) -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo e Brand -->
+                <div class="flex items-center gap-3 flex-shrink-0">
+                    <a href="index.html" class="flex items-center gap-3 group">
+                        <!-- Il file LogoAkiba.png posizionato localmente -->
+                        <img src="LogoAkiba.png" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/180x60/fef2f2/e03d4b?text=Magic+Akiba'" 
+                             alt="Magic Akiba Logo" 
+                             class="h-14 w-auto object-contain group-hover:scale-[1.03] transition-transform duration-300">
+                    </a>
+                </div>
+
+                  <!-- Navigazione Desktop Chiara -->
+                <nav class="flex space-x-2">
+                    <a href="index.html" class="px-4 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:text-akiba-500 hover:bg-stone-100/80 transition-all flex items-center gap-2">
+                        <i data-lucide="home" class="w-4 h-4"></i>
+                        Home
+                    </a>
+                    <a href="chisiamo.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                        <i data-lucide="users" class="w-4 h-4"></i>
+                        Chi Siamo
+                    </a>
+                    <a href="giochi.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                        <i data-lucide="dices" class="w-4 h-4"></i>
+                        Giochi
+                    </a>
+                    <a href="eventi.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                        <i data-lucide="dices" class="w-4 h-4"></i>
+                        News
+                    </a>
+                    <a href="eventi2.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                        <i data-lucide="calendar-days" class="w-4 h-4"></i>
+                        Eventi
+                    </a>
+                    <a href="cardmarketshop.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                        <i data-lucide="banknote" class="w-4 h-4"></i>
+                       Vendita Carte Singole
+                    </a>
+                    <a href="paginavuota.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                        <i data-lucide="flask-conical" class="w-4 h-4"></i>
+                       ???
+                    </a>
+                </nav>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Introduzione Giochi -->
+            <div class="text-center mb-12">
+                <span class="inline-block px-3 py-1 bg-akiba-50 text-akiba-500 rounded-full text-xs font-bold tracking-wider mb-3">IL NOSTRO CATALOGO</span>
+                <h1 class="text-3xl sm:text-4xl font-black text-stone-900 mb-4">Cosa si gioca da Magic Akiba?</h1>
+                <p class="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
+                Sfoglia le nostre sezioni, scopri quando ci riuniamo per i tornei e vieni a trovarci!
+                </p>
+            </div>
+
+            <!-- Griglia dei Giochi -->
+            <div id="gamesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- I giochi vengono renderizzati qui via JavaScript -->
+            </div>
+
+        </div>
+    </main>
+
+    <!-- DETTAGLIO MODALE (INFO GIOCO) -->
+    <div id="gameModal" class="fixed inset-0 z-50 hidden bg-stone-900/40 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl transform transition-all border border-stone-100 flex flex-col max-h-[90vh]">
+            <!-- Header Modale -->
+            <div class="p-6 border-b border-stone-100 flex justify-between items-start bg-stone-50">
+                <div>
+                    <span id="modalCategory" class="inline-block px-2.5 py-1 bg-akiba-50 text-akiba-500 rounded-full text-xs font-bold tracking-wider mb-2"></span>
+                    <h2 id="modalTitle" class="text-2xl font-black text-stone-900"></h2>
+                </div>
+                <button onclick="chiudiModale()" class="p-2 hover:bg-stone-200/60 rounded-xl text-stone-400 hover:text-stone-700 transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <!-- Contenuto Modale -->
+            <div class="p-6 space-y-6 overflow-y-auto flex-grow text-sm sm:text-base leading-relaxed text-stone-600">
+                <div>
+                    <h4 class="font-bold text-stone-900 text-xs uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <i data-lucide="book-open" class="w-4 h-4 text-akiba-500"></i> Cos'è?
+                    </h4>
+                    <p id="modalDesc" class="text-stone-600 text-sm leading-relaxed"></p>
+                </div>
+
+                <div id="modalFormatsContainer">
+                    <h4 class="font-bold text-stone-900 text-xs uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <i data-lucide="layers" class="w-4 h-4 text-akiba-500"></i> Formati Supportati
+                    </h4>
+                    <p id="modalFormats" class="text-stone-600 text-sm leading-relaxed"></p>
+                </div>
+
+                <div id="modalScheduleContainer" class="p-4 bg-akiba-50/50 rounded-2xl border border-akiba-100/50">
+                    <h4 class="font-bold text-akiba-700 text-xs uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <i data-lucide="calendar" class="w-4 h-4 text-akiba-500"></i> Orari & Giornate di Torneo
+                    </h4>
+                    <p id="modalSchedule" class="text-stone-700 text-sm font-semibold"></p>
+                </div>
+            </div>
+            <!-- Footer Modale -->
+            <div class="p-6 border-t border-stone-100 bg-stone-50 flex gap-3">
+                <a id="modalWhatsAppBtn" target="_blank" class="flex-grow flex items-center justify-center gap-2 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl text-sm shadow-md shadow-emerald-500/10 transition-all">
+                    <i data-lucide="message-square" class="w-4 h-4"></i>
+                    Chiedi una Demo su WhatsApp
+                </a>
+                <button onclick="chiudiModale()" class="px-5 py-3 bg-stone-200 hover:bg-stone-300 text-stone-700 font-bold rounded-xl text-sm transition-all">
+                    Chiudi
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER E INFO FISICHE (Tema Bianco e Rosso) -->
+    <footer id="contatti" class="bg-lightgray border-t border-stone-200 py-16 text-stone-600 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-12">
+                
+                 <!-- Colonna di Benvenuto Brand -->
+                <div class="lg:col-span-5 space-y-4">
+                    <img src="LogoAkiba.png" onerror="this.onerror=null; this.src='https://placehold.co/180x60/fef2f2/e03d4b?text=Magic+Akiba'" alt="Magic Akiba Logo" class="h-16 w-auto object-contain mb-4">
+                    <p class="text-stone-600 text-base leading-relaxed max-w-sm">
+                </div>
+
+                <!-- Icone Social aggiornate nel Footer -->
+                    <div class="flex gap-3 pt-2">
+                        <a href="https://www.facebook.com/magic.akiba98/?locale=it_IT" target="_blank" class="p-3 bg-stone-50 hover:bg-blue-600 hover:text-white text-stone-600 rounded-xl transition-all border border-stone-100">
+                            <i data-lucide="message-square-heart" class="w-5 h-5"></i>
+                            <span class="text-stone-700 font-semibold">Facebook</span>
+                        </a>
+                        <a href="https://www.instagram.com/magicakiba/" target="_blank" class="p-3 bg-stone-50 hover:bg-akiba-500 hover:text-white text-stone-600 rounded-xl transition-all border border-stone-100">
+                            <i data-lucide="circle-fading-plus" class="w-5 h-5"></i>
+                            <span class="text-stone-700 font-semibold">Instagram</span>
+                        </a>
+                        <a href="https://wa.me/393204821572" target="_blank" class="p-3 bg-stone-50 hover:bg-emerald-500 hover:text-white text-stone-600 rounded-xl transition-all border border-stone-100">
+                            <i data-lucide="message-square" class="w-5 h-5"></i>
+                            <span class="text-stone-700 font-semibold">WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Colonna Contatti -->
+                <div class="lg:col-span-3 space-y-5">
+                    <h4 class="text-stone-900 font-bold text-lg">Contatti & Sede</h4>
+                    
+                    <div class="space-y-4 text-sm">
+                        <a href="https://maps.google.com/?q=Via+Palmiro+Togliatti+4+Mariano+Comense" target="_blank" class="flex items-start gap-3 group">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-akiba-500 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform"></i> 
+                            <span class="text-stone-600 group-hover:text-akiba-500 transition-colors">
+                                Via Palmiro Togliatti, 86,<br>
+                                22066 Mariano Comense (CO)<br>
+                            </span>
+                        </a>
+
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-akiba-500 flex-shrink-0"></i> 
+                            <span class="text-stone-800 font-semibold">+39 320 482 1572</span>
+                        </div>
+                        
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-akiba-500 flex-shrink-0"></i> 
+                            <span class="text-stone-600">magic.akiba@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="border-t border-stone-200 pt-8 text-center text-xs text-stone-400">
+                <p>&copy; 2017 - 2026 Magic Akiba di FABIO BIANCHINI - P.IVA 02449480462..</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGICA JAVASCRIPT PER LA GESTIONE DEI GIOCHI -->
+    <script>
+        // Database dei giochi basato sul sito originale di Magic Akiba
+        const giochi = [
+            {
+                id: 'magic',
+                nome: 'Magic: The Gathering',
+                categoria: 'tcg',
+                coloreBadge: 'bg-red-50 text-red-600 border-red-100',
+                breveDesc: 'Il gioco di carte collezionabili più famoso del mondo. Battaglie epiche a colpi di magie e creature.',
+                descCompleta: 'Magic: The Gathering, creato da Richard Garfield nel 1993, è il primo gioco di carte collezionabili al mondo. Le carte rappresentano magie, evocazioni di creature leggendarie e artefatti a disposizione di un mago in uno scontro all\'ultimo punto vita. Da Magic Akiba trovi bustine, mazzi e tantissimi giocatori pronti ad accoglierti.',
+                formati: 'Commander (Multiplayer & 1v1), Standard, Pioneer, Draft e Prerelease speciali ad ogni nuova espansione.',
+                orari: 'Lunedì sera dalle 21:00 (Commander) • Mercoledì sera dalle 21:00 (Standard) • Sabato pomeriggio dalle 15:00 (Pioneer, previa disponibilità).',
+                emoji: '🧙‍♂️'
+            },
+            {
+                id: 'pokemon',
+                nome: 'Pokémon TCG',
+                categoria: 'tcg',
+                coloreBadge: 'bg-yellow-50 text-yellow-600 border-yellow-100',
+                breveDesc: 'Schiera i tuoi Pocket Monsters preferiti e combatti per diventare il miglior allenatore!',
+                descCompleta: 'Il gioco di carte collezionabili Pokémon nasce nel 1998 e permette di rivivere le indimenticabili battaglie della serie animata e dei videogiochi. Schiera Pikachu, Charizard o i tuoi Pokémon preferiti per sconfiggere i mostri tascabili del tuo avversario usando mosse e carte allenatore di supporto.',
+                formati: 'Standard Constructed.',
+                orari: 'Domeniche di apertura speciale dalle ore 15:00 per sfide amichevoli, gioco libero e scambio carte.',
+                emoji: '⚡'
+            },
+            {
+                id: 'onepiece',
+                nome: 'One Piece Card Game',
+                categoria: 'tcg',
+                coloreBadge: 'bg-blue-50 text-blue-600 border-blue-100',
+                breveDesc: 'Salpa con la ciurma di Cappello di Paglia nel TCG più caldo del momento targato Bandai.',
+                descCompleta: 'Il nuovissimo gioco di carte basato sul capolavoro manga di Eiichiro Oda. Con meccaniche veloci, fresche e un sistema di "DON!!" per potenziare i tuoi attacchi, ha conquistato i giocatori di tutto il mondo. Unisciti alla nostra ciurma in negozio per duelli entusiasmanti.',
+                formati: 'Constructed standard.',
+                orari: 'Giornate speciali di gioco e tornei promozionali (controlla i canali social o chiedici info per prenotare).',
+                emoji: '🏴‍☠️'
+            },
+            {
+                id: 'vanguard',
+                nome: 'Cardfight!! Vanguard',
+                categoria: 'tcg',
+                coloreBadge: 'bg-emerald-50 text-emerald-600 border-emerald-100',
+                breveDesc: 'Guida il tuo Vanguard sul pianeta Cray e unisciti al nostro famosissimo Team Ronin Akiba.',
+                descCompleta: 'Creato da Bushiroad, Vanguard è un gioco avvincente ambientato sul pianeta Cray. Ogni giocatore schiera il suo comandante principale (Vanguard) per guidare le unità d\'attacco. Da Magic Akiba il gioco è caldissimo: ospitiamo il Team Ronin Akiba, il nostro team ufficiale di Vanguard Premium!',
+                formati: 'Standard, Premium e Vanguard G.',
+                orari: 'Venerdì dalle 16:00 a chiusura (Premium e Standard) • Sabato pomeriggio dalle 15:00 (Vanguard G, tornei dedicati).',
+                emoji: '⚔️'
+            }
+        ];
+
+        let categoriaSelezionata = 'all';
+
+        // Rendering iniziale dei giochi
+        function renderizzaGiochi(lista = giochi) {
+            const container = document.getElementById('gamesGrid');
+            container.innerHTML = '';
+
+            if (lista.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-12">
+                        <i data-lucide="info" class="w-12 h-12 text-stone-300 mx-auto mb-4"></i>
+                        <p class="text-stone-500 font-medium">Nessun gioco corrisponde ai filtri di ricerca selezionati.</p>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
+            lista.forEach(gioco => {
+                const card = document.createElement('div');
+                card.className = "bg-white p-6 rounded-2xl border border-stone-200/60 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all cursor-pointer flex flex-col justify-between";
+                card.setAttribute('onclick', `apriModale('${gioco.id}')`);
+
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-3xl">${gioco.emoji}</span>
+                            <span class="px-2.5 py-1 rounded-full text-xs font-bold border ${gioco.coloreBadge}">
+                                ${gioco.categoria.toUpperCase()}
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-bold text-stone-900 mb-2">${gioco.nome}</h3>
+                        <p class="text-sm text-stone-600 leading-relaxed mb-6">${gioco.breveDesc}</p>
+                    </div>
+                    <div class="pt-4 border-t border-stone-100 flex items-center justify-between text-xs text-akiba-500 font-bold">
+                        <span>Scopri orari e formati</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+
+            lucide.createIcons();
+        }
+
+        // Selezione categoria
+        function selezionaCategoria(cat) {
+            categoriaSelezionata = cat;
+            
+            // Aggiorna lo stato visivo dei bottoni
+            const bottoni = ['all', 'tcg', 'modellismo', 'tavolo'];
+            bottoni.forEach(b => {
+                const btn = document.getElementById(`btn-${b}`);
+                if (b === cat) {
+                    btn.className = "px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-akiba-500 text-white shadow-md shadow-akiba-500/10";
+                } else {
+                    btn.className = "px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-white text-stone-600 border border-stone-200 hover:bg-stone-50";
+                }
+            });
+
+            filtraGiochi();
+        }
+
+        // Filtra giochi combinando categoria e input di ricerca
+        function filtraGiochi() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            
+            const risultati = giochi.filter(gioco => {
+                const matchaCategoria = (categoriaSelezionata === 'all' || gioco.categoria === categoriaSelezionata);
+                const matchaRicerca = (
+                    gioco.nome.toLowerCase().includes(query) || 
+                    gioco.breveDesc.toLowerCase().includes(query) || 
+                    gioco.formati.toLowerCase().includes(query)
+                );
+                return matchaCategoria && matchaRicerca;
+            });
+
+            renderizzaGiochi(risultati);
+        }
+
+        // Gestione della Modale Dettaglio
+        function apriModale(id) {
+            const gioco = giochi.find(g => g.id === id);
+            if (!gioco) return;
+
+            document.getElementById('modalTitle').innerText = gioco.nome;
+            document.getElementById('modalCategory').innerText = gioco.categoria.toUpperCase();
+            document.getElementById('modalDesc').innerText = gioco.descCompleta;
+            
+            // Gestione orari e formati
+            if (gioco.formati) {
+                document.getElementById('modalFormatsContainer').style.display = 'block';
+                document.getElementById('modalFormats').innerText = gioco.formati;
+            } else {
+                document.getElementById('modalFormatsContainer').style.display = 'none';
+            }
+
+            if (gioco.orari) {
+                document.getElementById('modalScheduleContainer').style.display = 'block';
+                document.getElementById('modalSchedule').innerText = gioco.orari;
+            } else {
+                document.getElementById('modalScheduleContainer').style.display = 'none';
+            }
+
+            // Link WhatsApp precompilato
+            const whatsappText = encodeURIComponent(`Ciao Fabio! Vorrei avere alcune informazioni o prenotare una demo/tavolo per il gioco: ${gioco.nome}. Mi spieghi come funziona?`);
+            document.getElementById('modalWhatsAppBtn').href = `https://wa.me/393204821572?text=${whatsappText}`;
+
+            // Mostra la modale
+            const modal = document.getElementById('gameModal');
+            modal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden'); // blocca lo scroll della pagina
+        }
+
+        function chiudiModale() {
+            const modal = document.getElementById('gameModal');
+            modal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // Chiudi modale cliccando fuori
+        window.onclick = function(event) {
+            const modal = document.getElementById('gameModal');
+            if (event.target === modal) {
+                chiudiModale();
+            }
+        }
+
+        window.onload = function() {
+            lucide.createIcons();
+            renderizzaGiochi();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Work In Progress - Magic Akiba</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- Tailwind CSS per uno styling moderno e super veloce -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Inter per una leggibilità premium -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Icone Lucide per simboli puliti ed eleganti -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        akiba: {
+                            50: '#fff5f5',
+                            100: '#ffe3e3',
+                            500: '#e03d4b', // Il rosso caldo distintivo di Magic Akiba
+                            600: '#c82e3a',
+                            700: '#a6202a',
+                            900: '#5c0f15'
+                        },
+                        cozy: {
+                            50: '#faf9f6',  // Bianco caldo / avorio per uno sfondo umano e morbido
+                            100: '#f4f3ef', // Grigio caldo chiarissimo per separare le sezioni
+                            200: '#e8e6e0',
+                            700: '#44403c', // Grigio pietra per i testi secondari
+                            800: '#292524', // Grigio scuro per i testi principali
+                            900: '#1c1917'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #faf9f6; /* Sfondo bianco caldo */
+        }
+        /* Scrollbar morbida in stile rosso coordinato */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f4f3ef;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e03d4b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c82e3a;
+        }
+    </style>
+</head>
+<body class="text-stone-800 min-h-screen flex flex-col overflow-x-hidden antialiased bg-cozy-50">
+
+    <!-- NAVBAR PRINCIPALE (Tema Chiaro: Bianco e Rosso) -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo e Brand -->
+                <div class="flex items-center gap-3 flex-shrink-0">
+                    <a href="#" class="flex items-center gap-3 group">
+                        <!-- File LogoAkiba.png posizionato in alto a sinistra -->
+                        <img src="LogoAkiba.png" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/180x60/fef2f2/e03d4b?text=Magic+Akiba'" 
+                             alt="Magic Akiba Logo" 
+                             class="h-14 w-auto object-contain group-hover:scale-[1.03] transition-transform duration-300">
+                    </a>
+                </div>
+
+               <!-- Navigazione Desktop Chiara -->
+                <nav class="flex space-x-2">
+                    <a href="index.html" class="px-4 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:text-akiba-500 hover:bg-stone-100/80 transition-all flex items-center gap-2">
+                        <i data-lucide="home" class="w-4 h-4"></i>
+                        Home
+                    </a>
+                    <a href="chisiamo.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                        <i data-lucide="users" class="w-4 h-4"></i>
+                        Chi Siamo
+                    </a>
+                    <a href="giochi.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                        <i data-lucide="dices" class="w-4 h-4"></i>
+                        Giochi
+                    </a>
+                    <a href="eventi.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                        <i data-lucide="dices" class="w-4 h-4"></i>
+                        News
+                    </a>
+                    <a href="eventi2.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                        <i data-lucide="calendar-days" class="w-4 h-4"></i>
+                        Eventi
+                    </a>
+                    <a href="cardmarketshop.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                        <i data-lucide="banknote" class="w-4 h-4"></i>
+                       Vendita Carte Singole
+                    </a>
+                    <a href="paginavuota.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                        <i data-lucide="flask-conical" class="w-4 h-4"></i>
+                       ???
+                    </a>
+                </nav>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow">
+        
+        <!-- HERO BANNER (Benvenuto accogliente e pulito) -->
+        <section class="relative py-24 md:py-32 bg-gradient-to-b from-white via-cozy-50 to-white flex items-center overflow-hidden">
+            <!-- Calda luce rossa soffusa di background per dare profondità -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-akiba-100/40 rounded-full blur-[130px] pointer-events-none"></div>
+            
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center">
+                
+                <div class="inline-flex items-center gap-2 px-3.5 py-2 bg-akiba-50 border border-akiba-100 rounded-full text-akiba-500 text-xs font-bold tracking-wider mb-8">
+                    <span class="w-2.5 h-2.5 rounded-full bg-akiba-500 animate-pulse"></span> Passa a trovarci!
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-stone-900 leading-tight mb-6">
+                  Work In <br>
+                    <span class="text-akiba-500">Progress</span>
+                </h1>
+                
+                <p class="text-lg sm:text-xl text-stone-600 max-w-2xl mx-auto font-normal leading-relaxed mb-10">
+                    La pagina non è al momento disponibile o è attualmente in manutenzione
+                </p>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER E INFO FISICHE (Tema Bianco e Rosso) -->
+    <footer id="contatti" class="bg-lightgray border-t border-stone-200 py-16 text-stone-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-12">
+                
+                <!-- Colonna di Benvenuto Brand -->
+                <div class="lg:col-span-5 space-y-4">
+                    <img src="LogoAkiba.png" onerror="this.onerror=null; this.src='https://placehold.co/180x60/fef2f2/e03d4b?text=Magic+Akiba'" alt="Magic Akiba Logo" class="h-16 w-auto object-contain mb-4">
+                    <p class="text-stone-600 text-base leading-relaxed max-w-sm">
+                    <div class="flex gap-3 pt-2">
+                    </div>
+                </div>
+
+                <!-- Icone Social aggiornate nel Footer -->
+                    <div class="flex gap-3 pt-2">
+                        <a href="https://www.facebook.com/magic.akiba98/?locale=it_IT" target="_blank" class="p-3 bg-stone-50 hover:bg-blue-600 hover:text-white text-stone-600 rounded-xl transition-all border border-stone-100">
+                            <i data-lucide="message-square-heart" class="w-5 h-5"></i>
+                            <span class="text-stone-700 font-semibold">Facebook</span>
+                        </a>
+                        <a href="https://www.instagram.com/magicakiba/" target="_blank" class="p-3 bg-stone-50 hover:bg-akiba-500 hover:text-white text-stone-600 rounded-xl transition-all border border-stone-100">
+                            <i data-lucide="circle-fading-plus" class="w-5 h-5"></i>
+                            <span class="text-stone-700 font-semibold">Instagram</span>
+                        </a>
+                        <a href="https://wa.me/393204821572" target="_blank" class="p-3 bg-stone-50 hover:bg-emerald-500 hover:text-white text-stone-600 rounded-xl transition-all border border-stone-100">
+                            <i data-lucide="message-square" class="w-5 h-5"></i>
+                            <span class="text-stone-700 font-semibold">WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Colonna Contatti -->
+                <div class="lg:col-span-3 space-y-5">
+                    <h4 class="text-stone-900 font-bold text-lg">Contatti & Sede</h4>
+                    
+                    <div class="space-y-4 text-sm">
+                        <a href="https://maps.google.com/?q=Via+Palmiro+Togliatti+4+Mariano+Comense" target="_blank" class="flex items-start gap-3 group">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-akiba-500 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform"></i> 
+                            <span class="text-stone-600 group-hover:text-akiba-500 transition-colors">
+                                Via Palmiro Togliatti, 86,<br>
+                                22066 Mariano Comense (CO)<br>
+                            </span>
+                        </a>
+                        
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-akiba-500 flex-shrink-0"></i> 
+                            <span class="text-stone-800 font-semibold">+39 320 482 1572</span>
+                        </div>
+                        
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-akiba-500 flex-shrink-0"></i> 
+                            <span class="text-stone-600">magic.akiba@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="border-t border-stone-200 pt-8 text-center text-xs text-stone-400">
+                <p>&copy; 2017 - 2026 Magic Akiba di FABIO BIANCHINI - P.IVA 02449480462.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGICA JAVASCRIPT DI BASE -->
+    <script>
+        window.onload = function() {
+            // Avvia icone lucide
+            lucide.createIcons();
+        };
+    </script>
+</body>
+</html>

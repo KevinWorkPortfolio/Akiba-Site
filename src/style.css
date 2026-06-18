@@ -1,0 +1,8 @@
+:root {
+  --primary-color: #ff4757;    /* Rosso dinamico / Neon */
+  --secondary-color: #2f3542;  /* Grigio scuro per i testi importanti */
+  --bg-dark: #111215;          /* Sfondo scuro moderno per la modalità dark (opzionale) */
+  --bg-light: #ffffff;         /* Sfondo chiaro */
+  --accent-color: #ffa502;     /* Arancione per i preordini o elementi speciali */
+  --font-main: 'Inter', system-ui, sans-serif; /* Font moderno e pulito */
+}
