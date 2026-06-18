@@ -6,7 +6,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        chisiamo: resolve(__dirname, 'chi-siamo.html'),
+        about: resolve(__dirname, 'about.html'),
         giochi: resolve(__dirname, 'giochi.html'),
         cardmarketshop: resolve(__dirname, 'cardmarketshop.html'),
         eventi: resolve(__dirname, 'eventi.html'),
