@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi Siamo - Magic Akiba</title>
-     <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- Tailwind CSS per uno styling veloce e moderno -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Inter per la massima leggibilità -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Icone Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <script>
@@ -17,13 +19,13 @@
                         akiba: {
                             50: '#fff5f5',
                             100: '#ffe3e3',
-                            500: '#e03d4b',
+                            500: '#e03d4b', // Rosso distintivo
                             600: '#c82e3a',
                             700: '#a6202a',
                             900: '#5c0f15'
                         },
                         cozy: {
-                            50: '#faf9f6',
+                            50: '#faf9f6',  // Avorio caldo
                             100: '#f4f3ef',
                             200: '#e8e6e0',
                             700: '#44403c',
@@ -39,58 +41,70 @@
         }
     </script>
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #faf9f6; }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f4f3ef; }
-        ::-webkit-scrollbar-thumb { background: #e03d4b; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #c82e3a; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #faf9f6;
+        }
+        /* Scrollbar morbida personalizzata */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f4f3ef;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e03d4b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c82e3a;
+        }
     </style>
 </head>
-<body class="text-stone-800 min-h-screen flex flex-col antialiased bg-cozy-50">
+<body class="text-stone-800 min-h-screen flex flex-col overflow-x-hidden antialiased bg-cozy-50">
 
-    <!-- NAVBAR -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200/80">
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200/80 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo e Brand -->
                 <div class="flex items-center gap-3 flex-shrink-0">
                     <a href="index.html" class="flex items-center gap-3 group">
-                        <img src="LogoAkiba.png" onerror="this.onerror=null; this.src='https://placehold.co/180x60/fef2f2/e03d4b?text=Magic+Akiba'" alt="Magic Akiba Logo" class="h-14 w-auto object-contain">
+                        <img src="LogoAkiba.png" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/180x60/fef2f2/e03d4b?text=Magic+Akiba'" 
+                             alt="Magic Akiba Logo" 
+                             class="h-14 w-auto object-contain group-hover:scale-[1.03] transition-transform duration-300">
                     </a>
                 </div>
-               <!-- Navigazione Desktop Chiara -->
+
+                <!-- Navigazione Desktop Chiara -->
                 <nav class="flex space-x-2">
                     <a href="index.html" class="px-4 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:text-akiba-500 hover:bg-stone-100/80 transition-all flex items-center gap-2">
                         <i data-lucide="home" class="w-4 h-4"></i>
                         Home
                     </a>
-                    <a href="about.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                    <a href="chi-siamo.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
                         <i data-lucide="users" class="w-4 h-4"></i>
                         Chi Siamo
                     </a>
-                    <a href="giochi.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                    <a href="giochi.html" class="px-4 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:text-akiba-500 hover:bg-stone-100/80 transition-all flex items-center gap-2">
                         <i data-lucide="dices" class="w-4 h-4"></i>
                         Giochi
                     </a>
-                    <a href="eventi.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
-                        <i data-lucide="dices" class="w-4 h-4"></i>
-                        News
+                    <a href="carte.html" class="px-4 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:text-akiba-500 hover:bg-stone-100/80 transition-all flex items-center gap-2">
+                        <i data-lucide="search" class="w-4 h-4"></i>
+                        Carte Singole
                     </a>
-                    <a href="eventi2.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
-                        <i data-lucide="calendar-days" class="w-4 h-4"></i>
-                        Eventi
-                    </a>
-                    <a href="cardmarketshop.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
-                        <i data-lucide="banknote" class="w-4 h-4"></i>
-                       Vendita Carte Singole
-                    </a>
-                    <a href="paginavuota.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
-                        <i data-lucide="flask-conical" class="w-4 h-4"></i>
-                       ???
+                    <a href="eventi.html" class="px-4 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:text-akiba-500 hover:bg-stone-100/80 transition-all flex items-center gap-2">
+                        <i data-lucide="calendar" class="w-4 h-4"></i>
+                        News & Eventi
                     </a>
                 </nav>
+
             </div>
         </div>
     </header>
+
 
     <!-- MAIN CONTENT -->
     <main class="flex-grow py-16">
