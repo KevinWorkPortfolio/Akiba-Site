@@ -1,14 +1,14 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi Siamo - Magic Akiba</title>
-    <!-- Tailwind CSS per uno styling veloce e moderno -->
+    <!-- Tailwind CSS per uno styling moderno e super veloce -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Inter per la massima leggibilità -->
+    <!-- Font Inter per una leggibilità premium -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Icone Lucide -->
+    <!-- Icone Lucide per simboli puliti ed eleganti -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <script>
@@ -19,17 +19,17 @@
                         akiba: {
                             50: '#fff5f5',
                             100: '#ffe3e3',
-                            500: '#e03d4b', // Rosso distintivo
+                            500: '#e03d4b', // Il rosso caldo distintivo di Magic Akiba
                             600: '#c82e3a',
                             700: '#a6202a',
                             900: '#5c0f15'
                         },
                         cozy: {
-                            50: '#faf9f6',  // Avorio caldo
-                            100: '#f4f3ef',
+                            50: '#faf9f6',  // Bianco caldo / avorio per uno sfondo umano e morbido
+                            100: '#f4f3ef', // Grigio caldo chiarissimo per separare le sezioni
                             200: '#e8e6e0',
-                            700: '#44403c',
-                            800: '#292524',
+                            700: '#44403c', // Grigio pietra per i testi secondari
+                            800: '#292524', // Grigio scuro per i testi principali
                             900: '#1c1917'
                         }
                     },
@@ -43,9 +43,9 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #faf9f6;
+            background-color: #faf9f6; /* Sfondo bianco caldo */
         }
-        /* Scrollbar morbida personalizzata */
+        /* Scrollbar morbida in stile rosso coordinato */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -63,6 +63,7 @@
 </head>
 <body class="text-stone-800 min-h-screen flex flex-col overflow-x-hidden antialiased bg-cozy-50">
 
+    <!-- NAVBAR PRINCIPALE (Tema Chiaro: Bianco e Rosso) -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200/80 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
@@ -77,7 +78,7 @@
                     </a>
                 </div>
 
-                <!-- Navigazione Desktop Chiara -->
+               <!-- Navigazione Desktop Chiara -->
                 <nav class="flex space-x-2">
                     <a href="index.html" class="px-4 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:text-akiba-500 hover:bg-stone-100/80 transition-all flex items-center gap-2">
                         <i data-lucide="home" class="w-4 h-4"></i>
@@ -87,17 +88,25 @@
                         <i data-lucide="users" class="w-4 h-4"></i>
                         Chi Siamo
                     </a>
-                    <a href="giochi.html" class="px-4 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:text-akiba-500 hover:bg-stone-100/80 transition-all flex items-center gap-2">
+                    <a href="giochi.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
                         <i data-lucide="dices" class="w-4 h-4"></i>
                         Giochi
                     </a>
-                    <a href="carte.html" class="px-4 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:text-akiba-500 hover:bg-stone-100/80 transition-all flex items-center gap-2">
-                        <i data-lucide="search" class="w-4 h-4"></i>
-                        Carte Singole
+                    <a href="eventi.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                        <i data-lucide="dices" class="w-4 h-4"></i>
+                        News
                     </a>
-                    <a href="eventi.html" class="px-4 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:text-akiba-500 hover:bg-stone-100/80 transition-all flex items-center gap-2">
-                        <i data-lucide="calendar" class="w-4 h-4"></i>
-                        News & Eventi
+                    <a href="eventi2.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                        <i data-lucide="calendar-days" class="w-4 h-4"></i>
+                        Eventi
+                    </a>
+                    <a href="cardmarketshop.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                        <i data-lucide="banknote" class="w-4 h-4"></i>
+                       Vendita Carte Singole
+                    </a>
+                    <a href="paginavuota.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                        <i data-lucide="flask-conical" class="w-4 h-4"></i>
+                       ???
                     </a>
                 </nav>
 
@@ -105,92 +114,155 @@
         </div>
     </header>
 
-
     <!-- MAIN CONTENT -->
     <main class="flex-grow py-16">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
             <div class="text-center mb-16">
                 <span class="inline-block px-3 py-1 bg-akiba-50 text-akiba-500 rounded-full text-xs font-bold tracking-wider mb-3">LA NOSTRA STORIA</span>
                 <h1 class="text-3xl sm:text-4xl font-black text-stone-900 mb-4">Chi Siamo</h1>
-                <p class="text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
-                    Ciao, mi chiamo Fabio e sono il titolare di Magic Akiba. Sono nato e cresciuto in Toscana, vicino a Viareggio, e vivo in provincia di Como da circa 8 anni. Sono sempre stato appassionato di giochi di carte collezionabili, a cui mi sono avvicinato sin dall'approdo di Magic in Italia, nel 1994. Da allora la passione per il gioco si è unita a quella della collezione e non è mai finita! Nel 2013 e 2014 qualche viaggio rivelatore con mia moglie, tra Belgio e Giappone, mi ha portato ad elaborare l'idea di un negozio di giochi di carte collezionabili ed altri giochi giapponesi tutto mio, in cui potermi esprimere al meglio. Ed è così che a febbraio 2017 è nato Magic Akiba!
-                    <br><br>
-                    Al mio fianco c'è mia moglie Melissa, che ha da sempre supportato la mia scelta e tuttora lo fa dandomi una mano da dietro le quinte sotto alcuni aspetti. Dietro i post sui social, questo sito stesso, la partecipazione del negozio alle manifestazioni e alcuni degli eventi in negozio c'è spesso il suo zampino! Può anche capitare che la troviate in negozio vestita da maid!
-                    <br><br>
+                <div class="w-16 h-1 bg-akiba-500 mx-auto rounded-full mb-6"></div>
+            </div>
+
+            <!-- Articolo della Storia con Stile Editoriale -->
+            <div class="bg-white p-8 sm:p-12 rounded-3xl border border-stone-200 shadow-sm space-y-8 text-stone-600 leading-relaxed mb-16">
+                <p class="text-base sm:text-lg">
+                    Ciao, mi chiamo <strong class="text-stone-900 font-bold">Fabio</strong> e sono il titolare di Magic Akiba. Sono nato e cresciuto in Toscana, vicino a Viareggio, e vivo in provincia di Como da circa 8 anni. Sono sempre stato appassionato di giochi di carte collezionabili, a cui mi sono avvicinato sin dall'approdo di Magic in Italia, nel 1994. 
+                </p>
+                
+                <p class="text-base sm:text-lg">
+                    Da allora la passione per il gioco si è unita a quella della collezione e non è mai finita! Nel 2013 e 2014 qualche viaggio rivelatore con mia moglie, tra Belgio e Giappone, mi ha portato ad elaborare l'idea di un negozio di giochi di carte collezionabili ed altri giochi giapponesi tutto mio, in cui potermi esprimere al meglio. Ed è così che a febbraio 2017 è nato **Magic Akiba**!
+                </p>
+
+                <div class="border-l-4 border-akiba-500 pl-4 py-2 my-6 bg-stone-50 rounded-r-xl">
+                    <p class="italic text-stone-700 font-medium">
+                        "Al mio fianco c'è mia moglie Melissa, che ha da sempre supportato la mia scelta e tuttora lo fa dandomi una mano da dietro le quinte sotto alcuni aspetti."
+                    </p>
+                </div>
+
+                <p class="text-base sm:text-lg">
+                    Dietro i post sui social, questo sito stesso, la partecipazione del negozio alle manifestazioni e alcuni degli eventi in negozio c'è spesso il suo zampino! Può anche capitare che la troviate in negozio vestita da maid!
+                </p>
+
+                <p class="text-base sm:text-lg font-semibold text-stone-900">
                     Tuttavia Magic Akiba è anche tutte le persone che l'hanno sostenuto fino ad oggi e continueranno a sostenerlo. Siamo come una famiglia allargata... molto allargata! Se vuoi conoscerla e farne parte ti aspettiamo in negozio!
                 </p>
             </div>
 
-            <!-- Galleria -->
+            <!-- Galleria Fotografica -->
             <div class="mb-16">
                 <h2 class="text-2xl font-black text-stone-900 flex items-center justify-center gap-2 mb-8">
-                    <i data-lucide="camera" class="text-akiba-500 w-6 h-6"></i> Store Gallery
+                    <i data-lucide="camera" class="text-akiba-500 w-6 h-6"></i> Lo Store
                 </h2>
-                <div id="carousel" class="flex overflow-x-auto justify-center snap-x snap-mandatory gap-6 pb-6 scroll-smooth">
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     <!-- Foto 1 -->
-                    <div class="min-w-[300px] flex-shrink-0 snap-start bg-white p-3 rounded-3xl border border-stone-200 shadow-sm">
-                        <img src="images/foto-fabio-1.png" alt="Fabio" class="w-full h-[300px] object-cover rounded-2xl">
+                    <div class="bg-white p-3 rounded-3xl border border-stone-200 shadow-sm group overflow-hidden">
+                        <div class="overflow-hidden rounded-2xl aspect-video bg-stone-100">
+                            <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80" 
+                                 onerror="this.onerror=null; this.src='https://placehold.co/800x450/fef2f2/e03d4b?text=Magic+Akiba+Store'" 
+                                 alt="Interno del Negozio" 
+                                 class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300">
+                        </div>
+                        <p class="text-xs font-bold text-stone-400 mt-3 text-center uppercase tracking-wider">La sala giochi e tornei</p>
                     </div>
                     <!-- Foto 2 -->
-                    <div class="min-w-[300px] flex-shrink-0 snap-start bg-white p-3 rounded-3xl border border-stone-200 shadow-sm">
-                        <img src="images/foto-fabio-2.png" alt="Fabio 2" class="w-full h-[300px] object-cover rounded-2xl">
+                    <div class="bg-white p-3 rounded-3xl border border-stone-200 shadow-sm group overflow-hidden">
+                        <div class="overflow-hidden rounded-2xl aspect-video bg-stone-100">
+                            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80" 
+                                 onerror="this.onerror=null; this.src='https://placehold.co/800x450/fef2f2/e03d4b?text=Community+Akiba'" 
+                                 alt="La nostra community" 
+                                 class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300">
+                        </div>
+                        <p class="text-xs font-bold text-stone-400 mt-3 text-center uppercase tracking-wider">Unisciti alla nostra famiglia</p>
                     </div>
                 </div>
             </div>
+            
         </div>
     </main>
 
- <!-- FOOTER E INFO FISICHE (Tema Bianco e Rosso) -->
-    <footer id="contatti" class="bg-lightgray border-t border-stone-200 py-16 text-stone-600 mt-auto">
+    <!-- FOOTER E INFO FISICHE (Tema Bianco e Rosso Coerente e Sincronizzato) -->
+    <footer id="contatti" class="bg-white border-t border-stone-200 py-16 text-stone-600 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
                 
-                 <!-- Colonna di Benvenuto Brand -->
+                <!-- Colonna di Benvenuto Brand (5/12) -->
                 <div class="lg:col-span-5 space-y-4">
                     <img src="LogoAkiba.png" onerror="this.onerror=null; this.src='https://placehold.co/180x60/fef2f2/e03d4b?text=Magic+Akiba'" alt="Magic Akiba Logo" class="h-16 w-auto object-contain mb-4">
                     <p class="text-stone-600 text-base leading-relaxed max-w-sm">
+                        La tua oasi accogliente a Mariano Comense per incontrarsi, giocare da tavolo, collezionare carte, montare Gunpla e divertirsi in compagnia.
+                    </p>
                     <div class="flex gap-3 pt-2">
-                    </div>
-                </div>
-
-                <!-- Icone Social aggiornate nel Footer -->
-                    <div class="flex gap-3 pt-2">
-                        <a href="https://www.facebook.com/magic.akiba98/?locale=it_IT" target="_blank" class="p-3 bg-stone-50 hover:bg-blue-600 hover:text-white text-stone-600 rounded-xl transition-all border border-stone-100">
-                            <i data-lucide="message-square-heart" class="w-5 h-5"></i>
-                            <span class="text-stone-700 font-semibold">Facebook</span>
+                        <a href="https://www.instagram.com/magicakibahub/" target="_blank" class="p-3 bg-stone-50 hover:bg-akiba-500 hover:text-white text-stone-600 rounded-xl transition-all border border-stone-100">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
                         </a>
-                        <a href="https://www.instagram.com/magicakiba/" target="_blank" class="p-3 bg-stone-50 hover:bg-akiba-500 hover:text-white text-stone-600 rounded-xl transition-all border border-stone-100">
-                            <i data-lucide="circle-fading-plus" class="w-5 h-5"></i>
-                            <span class="text-stone-700 font-semibold">Instagram</span>
-                        </a>
-                        <a href="https://wa.me/393204821572" target="_blank" class="p-3 bg-stone-50 hover:bg-emerald-500 hover:text-white text-stone-600 rounded-xl transition-all border border-stone-100">
+                        <a href="https://wa.me/39031745423" target="_blank" class="p-3 bg-stone-50 hover:bg-emerald-500 hover:text-white text-stone-600 rounded-xl transition-all border border-stone-100">
                             <i data-lucide="message-square" class="w-5 h-5"></i>
-                            <span class="text-stone-700 font-semibold">WhatsApp</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Colonna Contatti -->
-                <div class="lg:col-span-3 space-y-5">
+                <!-- Colonna Orari Ultra Compatta (3/12) -->
+                <div class="lg:col-span-3 bg-stone-50 p-4 rounded-xl border border-stone-200/60 shadow-xs">
+                    <h4 class="text-stone-900 font-bold text-sm flex items-center gap-1.5 mb-3">
+                        <i data-lucide="clock" class="text-akiba-500 w-4 h-4"></i>
+                        Orari di Apertura
+                    </h4>
+                    <ul class="space-y-1 text-xs text-stone-600">
+                        <li class="flex justify-between border-b border-stone-200/40 pb-1">
+                            <span class="font-semibold text-akiba-600">Lunedì:</span>
+                            <span class="text-stone-400 font-medium">Chiuso</span>
+                        </li>
+                        <li class="flex justify-between border-b border-stone-200/40 pb-1">
+                            <span class="font-medium">Martedì:</span>
+                            <span class="text-stone-800 font-medium">15:00-23:00</span>
+                        </li>
+                        <li class="flex justify-between border-b border-stone-200/40 pb-1">
+                            <span class="font-medium">Mercoledì:</span>
+                            <span class="text-stone-800 font-medium">15:30-20:00</span>
+                        </li>
+                        <li class="flex justify-between border-b border-stone-200/40 pb-1">
+                            <span class="font-medium">Giovedì:</span>
+                            <span class="text-stone-800 font-medium">15:00-19:00</span>
+                        </li>
+                        <li class="flex justify-between border-b border-stone-200/40 pb-1">
+                            <span class="font-medium">Venerdì:</span>
+                            <span class="text-stone-800 font-medium">15:00-23:00</span>
+                        </li>
+                        <li class="flex justify-between border-b border-stone-200/40 pb-1">
+                            <span class="font-medium">Sabato:</span>
+                            <span class="text-stone-800 font-medium">14:30-19:30</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="font-semibold text-akiba-600">Domenica:</span>
+                            <span class="text-stone-400 font-medium">Chiuso</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Colonna Contatti Distanziata (4/12) -->
+                <div class="lg:col-span-4 space-y-5">
                     <h4 class="text-stone-900 font-bold text-lg">Contatti & Sede</h4>
                     
                     <div class="space-y-4 text-sm">
                         <a href="https://maps.google.com/?q=Via+Palmiro+Togliatti+4+Mariano+Comense" target="_blank" class="flex items-start gap-3 group">
                             <i data-lucide="map-pin" class="w-5 h-5 text-akiba-500 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform"></i> 
                             <span class="text-stone-600 group-hover:text-akiba-500 transition-colors">
-                                Via Palmiro Togliatti, 86,<br>
+                                Via Palmiro Togliatti, 4,<br>
                                 22066 Mariano Comense (CO)<br>
+                                <span class="text-xs text-stone-400">(Parcheggio comodo vicino)</span>
                             </span>
                         </a>
-
+                        
                         <div class="flex items-center gap-3">
                             <i data-lucide="phone" class="w-5 h-5 text-akiba-500 flex-shrink-0"></i> 
-                            <span class="text-stone-800 font-semibold">+39 320 482 1572</span>
+                            <span class="text-stone-800 font-semibold">031 745423</span>
                         </div>
                         
                         <div class="flex items-center gap-3">
                             <i data-lucide="mail" class="w-5 h-5 text-akiba-500 flex-shrink-0"></i> 
-                            <span class="text-stone-600">magic.akiba@gmail.com</span>
+                            <span class="text-stone-600">info@magicakiba.it</span>
                         </div>
                     </div>
                 </div>
@@ -198,13 +270,17 @@
             </div>
             
             <div class="border-t border-stone-200 pt-8 text-center text-xs text-stone-400">
-                <p>&copy; 2017 - 2026 Magic Akiba di FABIO BIANCHINI - P.IVA 02449480462..</p>
+                <p>&copy; 2026 Magic Akiba. Sviluppato con passione per l'accogliente Community fisica di Mariano Comense.</p>
             </div>
         </div>
     </footer>
 
+    <!-- LOGICA JAVASCRIPT DI BASE -->
     <script>
-        window.onload = () => lucide.createIcons();
+        window.onload = function() {
+            // Inizializza le icone Lucide
+            lucide.createIcons();
+        };
     </script>
 </body>
 </html>
