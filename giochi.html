@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giochi - Magic Akiba</title>
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link class="rounded-full" rel="icon" type="image/png" href="images/favicon.png">
     <!-- Tailwind CSS per uno styling moderno e super veloce -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Inter per una leggibilità premium -->
@@ -80,13 +80,13 @@
                     </a>
                 </div>
 
-                  <!-- Navigazione Desktop Chiara -->
+                <!-- Navigazione Desktop Chiara -->
                 <nav class="flex space-x-2">
                     <a href="index.html" class="px-4 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:text-akiba-500 hover:bg-stone-100/80 transition-all flex items-center gap-2">
                         <i data-lucide="home" class="w-4 h-4"></i>
                         Home
                     </a>
-                   <a href="about.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                    <a href="about.html" class="px-4 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:text-akiba-500 hover:bg-stone-100/80 transition-all flex items-center gap-2">
                         <i data-lucide="users" class="w-4 h-4"></i>
                         Chi Siamo
                     </a>
@@ -94,21 +94,17 @@
                         <i data-lucide="dices" class="w-4 h-4"></i>
                         Giochi
                     </a>
-                    <a href="eventi.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
-                        <i data-lucide="dices" class="w-4 h-4"></i>
+                    <a href="eventi.html" class="px-4 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:text-akiba-500 hover:bg-stone-100/80 transition-all flex items-center gap-2">
+                        <i data-lucide="newspaper" class="w-4 h-4"></i>
                         News
                     </a>
-                    <a href="eventi2.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                    <a href="eventi2.html" class="px-4 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:text-akiba-500 hover:bg-stone-100/80 transition-all flex items-center gap-2">
                         <i data-lucide="calendar-days" class="w-4 h-4"></i>
                         Eventi
                     </a>
-                    <a href="cardmarketshop.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
+                    <a href="cardmarketshop.html" class="px-4 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:text-akiba-500 hover:bg-stone-100/80 transition-all flex items-center gap-2">
                         <i data-lucide="banknote" class="w-4 h-4"></i>
-                       Cardmarket
-                    </a>
-                    <a href="paginavuota.html" class="px-4 py-2 rounded-xl text-sm font-bold text-akiba-500 bg-akiba-50 flex items-center gap-2 transition-all">
-                        <i data-lucide="flask-conical" class="w-4 h-4"></i>
-                       ???
+                        Cardmarket
                     </a>
                 </nav>
 
@@ -125,7 +121,7 @@
                 <span class="inline-block px-3 py-1 bg-akiba-50 text-akiba-500 rounded-full text-xs font-bold tracking-wider mb-3">IL NOSTRO CATALOGO</span>
                 <h1 class="text-3xl sm:text-4xl font-black text-stone-900 mb-4">Cosa si gioca da Magic Akiba?</h1>
                 <p class="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
-                Sfoglia le nostre sezioni, scopri quando ci riuniamo per i tornei e vieni a trovarci!
+                    Sfoglia le nostre sezioni, scopri quando ci riuniamo per i tornei e vieni a trovarci!
                 </p>
             </div>
 
@@ -142,9 +138,14 @@
         <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl transform transition-all border border-stone-100 flex flex-col max-h-[90vh]">
             <!-- Header Modale -->
             <div class="p-6 border-b border-stone-100 flex justify-between items-start bg-stone-50">
-                <div>
-                    <span id="modalCategory" class="inline-block px-2.5 py-1 bg-akiba-50 text-akiba-500 rounded-full text-xs font-bold tracking-wider mb-2"></span>
-                    <h2 id="modalTitle" class="text-2xl font-black text-stone-900"></h2>
+                <div class="flex flex-col gap-2">
+                    <span id="modalCategory" class="inline-block px-2.5 py-1 bg-akiba-50 text-akiba-500 rounded-full text-xs font-bold tracking-wider w-max"></span>
+                    <div class="flex items-center gap-3">
+                        <div id="modalLogoContainer" class="h-10 w-28 flex items-center justify-start">
+                            <!-- Il logo caricato dinamicamente apparirà qui -->
+                        </div>
+                        <h2 id="modalTitle" class="text-2xl font-black text-stone-900 leading-tight"></h2>
+                    </div>
                 </div>
                 <button onclick="chiudiModale()" class="p-2 hover:bg-stone-200/60 rounded-xl text-stone-400 hover:text-stone-700 transition-colors">
                     <i data-lucide="x" class="w-5 h-5"></i>
@@ -194,24 +195,22 @@
                  <!-- Colonna di Benvenuto Brand -->
                 <div class="lg:col-span-5 space-y-4">
                     <img src="LogoAkiba.png" onerror="this.onerror=null; this.src='https://placehold.co/180x60/fef2f2/e03d4b?text=Magic+Akiba'" alt="Magic Akiba Logo" class="h-16 w-auto object-contain mb-4">
-                    <p class="text-stone-600 text-base leading-relaxed max-w-sm">
                 </div>
 
                 <!-- Icone Social aggiornate nel Footer -->
-                    <div class="flex gap-3 pt-2">
-                        <a href="https://www.facebook.com/magic.akiba98/?locale=it_IT" target="_blank" class="p-3 bg-stone-50 hover:bg-blue-600 hover:text-white text-stone-600 rounded-xl transition-all border border-stone-100">
-                            <i data-lucide="message-square-heart" class="w-5 h-5"></i>
-                            <span class="text-stone-700 font-semibold">Facebook</span>
-                        </a>
-                        <a href="https://www.instagram.com/magicakiba/" target="_blank" class="p-3 bg-stone-50 hover:bg-akiba-500 hover:text-white text-stone-600 rounded-xl transition-all border border-stone-100">
-                            <i data-lucide="circle-fading-plus" class="w-5 h-5"></i>
-                            <span class="text-stone-700 font-semibold">Instagram</span>
-                        </a>
-                        <a href="https://wa.me/393204821572" target="_blank" class="p-3 bg-stone-50 hover:bg-emerald-500 hover:text-white text-stone-600 rounded-xl transition-all border border-stone-100">
-                            <i data-lucide="message-square" class="w-5 h-5"></i>
-                            <span class="text-stone-700 font-semibold">WhatsApp</span>
-                        </a>
-                    </div>
+                <div class="lg:col-span-4 flex flex-col gap-3 pt-2">
+                    <a href="https://www.facebook.com/magic.akiba98/?locale=it_IT" target="_blank" class="p-3 bg-stone-50 hover:bg-blue-600 hover:text-white text-stone-600 rounded-xl transition-all border border-stone-100 flex items-center gap-3">
+                        <i data-lucide="message-square-heart" class="w-5 h-5"></i>
+                        <span class="text-stone-700 font-semibold group-hover:text-white">Facebook</span>
+                    </a>
+                    <a href="https://www.instagram.com/magicakiba/" target="_blank" class="p-3 bg-stone-50 hover:bg-akiba-500 hover:text-white text-stone-600 rounded-xl transition-all border border-stone-100 flex items-center gap-3">
+                        <i data-lucide="circle-fading-plus" class="w-5 h-5"></i>
+                        <span class="text-stone-700 font-semibold">Instagram</span>
+                    </a>
+                    <a href="https://wa.me/393204821572" target="_blank" class="p-3 bg-stone-50 hover:bg-emerald-500 hover:text-white text-stone-600 rounded-xl transition-all border border-stone-100 flex items-center gap-3">
+                        <i data-lucide="message-square" class="w-5 h-5"></i>
+                        <span class="text-stone-700 font-semibold">WhatsApp</span>
+                    </a>
                 </div>
 
                 <!-- Colonna Contatti -->
@@ -304,7 +303,7 @@
                 descCompleta: 'Il gioco di carte collezionabili Pokémon nasce nel 1998 e permette di rivivere le indimenticabili battaglie della serie animata e dei videogiochi. Schiera Pikachu, Charizard o i tuoi Pokémon preferiti per sconfiggere i mostri tascabili del tuo avversario usando mosse e carte allenatore di supporto.',
                 formati: 'Standard Constructed.',
                 orari: 'Domeniche di apertura speciale dalle ore 15:00 per sfide amichevoli, gioco libero e scambio carte.',
-                logo: 'images/pokemon.png'
+                logo: 'images/logos/pokemon.png'
             }, 
             {
                 id: 'onepiece',
@@ -315,18 +314,18 @@
                 descCompleta: 'Il nuovissimo gioco di carte basato sul capolavoro manga di Eiichiro Oda. Con meccaniche veloci, fresche e un sistema di "DON!!" per potenziare i tuoi attacchi, ha conquistato i giocatori di tutto il mondo. Unisciti alla nostra ciurma in negozio per duelli entusiasmanti.',
                 formati: 'Constructed standard.',
                 orari: 'Giornate speciali di gioco e tornei promozionali (controlla i canali social o chiedici info per prenotare).',
-                logo: 'images/onepiece.png'
+                logo: 'images/logos/onepiece.png'
             },
             {
                 id: 'vanguard',
                 nome: 'Cardfight!! Vanguard',
                 categoria: 'tcg',
                 coloreBadge: 'bg-emerald-50 text-emerald-600 border-emerald-100',
-                breveDesc: 'Cardfight!! Vanguard è un gioco di carte collezionabili creato da una collaborazione fra Akira Itō, Satoshi Nakamura, Mitsuhisa Tamura ed il presidente della Bushiroad, Takaaki Kidani.',
+                breveDesc: 'Guida il tuo Vanguard sul pianeta Cray e unisciti al nostro famosissimo Team Ronin Akiba.',
                 descCompleta: 'Creato da Bushiroad, Vanguard è un gioco avvincente ambientato sul pianeta Cray. Ogni giocatore schiera il suo comandante principale (Vanguard) per guidare le unità d\'attacco. Da Magic Akiba il gioco è caldissimo: ospitiamo il Team Ronin Akiba, il nostro team ufficiale di Vanguard Premium!',
                 formati: 'Standard, Premium e Vanguard G.',
                 orari: 'Venerdì dalle 16:00 a chiusura (Premium e Standard) • Sabato pomeriggio dalle 15:00 (Vanguard G, tornei dedicati).',
-                logo: 'images/vanguard.png'
+                logo: 'images/logos/vanguard.png'
             }
         ];
 
