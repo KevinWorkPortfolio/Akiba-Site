@@ -249,6 +249,40 @@
 
     <!-- LOGICA JAVASCRIPT PER LA GESTIONE DEI GIOCHI -->
     <script>
+        // Funzione di salvataggio globale per i loghi che falliscono il caricamento o sono assenti
+        function handleLogoError(imgElement, nomeGioco, categoria) {
+            imgElement.onerror = null; // Previene loop infiniti
+            
+            // Colori e scritte di fallback intelligenti basati sul gioco e sulla categoria
+            let fallbackColor = 'e03d4b/ffffff'; // Rosso Akiba di default
+            let fallbackText = nomeGioco || 'Gioco';
+
+            if (categoria === 'tcg') {
+                const lowerNome = fallbackText.toLowerCase();
+                if (lowerNome.includes('magic')) {
+                    fallbackColor = '1e1b1b/ffffff';
+                    fallbackText = 'MTG';
+                } else if (lowerNome.includes('pok')) {
+                    fallbackColor = 'ffcb05/003a70';
+                    fallbackText = 'Pokémon';
+                } else if (lowerNome.includes('one')) {
+                    fallbackColor = '003264/ffffff';
+                    fallbackText = 'One Piece';
+                } else if (lowerNome.includes('vanguard')) {
+                    fallbackColor = '008080/ffffff';
+                    fallbackText = 'Vanguard';
+                } else {
+                    fallbackColor = '44403c/ffffff';
+                }
+            } else if (categoria === 'modellismo') {
+                fallbackColor = '0891b2/ffffff'; // Ciano per modellismo
+            } else if (categoria === 'tavolo') {
+                fallbackColor = '0d9488/ffffff'; // Smeraldo per giochi da tavolo
+            }
+
+            imgElement.src = `https://placehold.co/120x45/${fallbackColor}?text=${encodeURIComponent(fallbackText)}`;
+        }
+
         const giochi = [
             {
                 id: 'magic',
@@ -259,9 +293,7 @@
                 descCompleta: 'Magic: The Gathering, creato da Richard Garfield nel 1993, è il primo gioco di carte collezionabili al mondo. Le carte rappresentano magie, evocazioni di creature leggendarie e artefatti a disposizione di un mago in uno scontro all\'ultimo punto vita. Da Magic Akiba trovi bustine, mazzi e tantissimi giocatori pronti ad accoglierti.',
                 formati: 'Commander (Multiplayer & 1v1), Standard, Pioneer, Draft e Prerelease speciali ad ogni nuova espansione.',
                 orari: 'Lunedì sera dalle 21:00 (Commander) • Mercoledì sera dalle 21:00 (Standard) • Sabato pomeriggio dalle 15:00 (Pioneer, previa disponibilità).',
-                logo: 'images/magic.png',
-                logoFallbackText: 'MTG',
-                logoFallbackColor: '1e1b1b/ffffff'
+                logo: 'images/logos/magic.png'
             },
             {
                 id: 'pokemon',
@@ -272,9 +304,7 @@
                 descCompleta: 'Il gioco di carte collezionabili Pokémon nasce nel 1998 e permette di rivivere le indimenticabili battaglie della serie animata e dei videogiochi. Schiera Pikachu, Charizard o i tuoi Pokémon preferiti per sconfiggere i mostri tascabili del tuo avversario usando mosse e carte allenatore di supporto.',
                 formati: 'Standard Constructed.',
                 orari: 'Domeniche di apertura speciale dalle ore 15:00 per sfide amichevoli, gioco libero e scambio carte.',
-                logo: 'images/pokemon.png',
-                logoFallbackText: 'Pokémon',
-                logoFallbackColor: 'ffcb05/003a70'
+                logo: 'images/logos/pokemon.png'
             }, 
             {
                 id: 'onepiece',
@@ -285,9 +315,7 @@
                 descCompleta: 'Il nuovissimo gioco di carte basato sul capolavoro manga di Eiichiro Oda. Con meccaniche veloci, fresche e un sistema di "DON!!" per potenziare i tuoi attacchi, ha conquistato i giocatori di tutto il mondo. Unisciti alla nostra ciurma in negozio per duelli entusiasmanti.',
                 formati: 'Constructed standard.',
                 orari: 'Giornate speciali di gioco e tornei promozionali (controlla i canali social o chiedici info per prenotare).',
-                logo: 'images/onepiece.png',
-                logoFallbackText: 'One Piece',
-                logoFallbackColor: '003264/ffffff'
+                logo: 'images/logos/onepiece.png'
             },
             {
                 id: 'vanguard',
@@ -298,15 +326,12 @@
                 descCompleta: 'Creato da Bushiroad, Vanguard è un gioco avvincente ambientato sul pianeta Cray. Ogni giocatore schiera il suo comandante principale (Vanguard) per guidare le unità d\'attacco. Da Magic Akiba il gioco è caldissimo: ospitiamo il Team Ronin Akiba, il nostro team ufficiale di Vanguard Premium!',
                 formati: 'Standard, Premium e Vanguard G.',
                 orari: 'Venerdì dalle 16:00 a chiusura (Premium e Standard) • Sabato pomeriggio dalle 15:00 (Vanguard G, tornei dedicati).',
-                logo: 'images/vanguard.png',
-                logoFallbackText: 'Vanguard',
-                logoFallbackColor: '008080/ffffff'
+                logo: 'images/logos/vanguard.png'
             }
         ];
-        
+
         let categoriaSelezionata = 'all';
 
-        // Rendering iniziale dei giochi
         function renderizzaGiochi(lista = giochi) {
             const container = document.getElementById('gamesGrid');
             container.innerHTML = '';
@@ -325,12 +350,21 @@
             lista.forEach(gioco => {
                 const card = document.createElement('div');
                 card.className = "bg-white p-6 rounded-2xl border border-stone-200/60 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all cursor-pointer flex flex-col justify-between";
+                
+                // Evitiamo apici singoli che rompono l'attributo HTML
+                const nomeSicuro = gioco.nome.replace(/'/g, "\\'");
                 card.setAttribute('onclick', `apriModale('${gioco.id}')`);
 
                 card.innerHTML = `
                     <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-3xl">${gioco.emoji}</span>
+                        <div class="flex justify-between items-start mb-6">
+                            <!-- Container del Logo del gioco con fallback sicuro -->
+                            <div class="h-12 w-32 flex items-center justify-start overflow-hidden">
+                                <img src="${gioco.logo || 'missing-logo'}" 
+                                     onerror="handleLogoError(this, '${nomeSicuro}', '${gioco.categoria}')" 
+                                     alt="Logo ${gioco.nome}" 
+                                     class="h-10 w-auto object-contain max-w-[120px] transition-transform group-hover:scale-105">
+                            </div>
                             <span class="px-2.5 py-1 rounded-full text-xs font-bold border ${gioco.coloreBadge}">
                                 ${gioco.categoria.toUpperCase()}
                             </span>
@@ -349,42 +383,14 @@
             lucide.createIcons();
         }
 
-        // Selezione categoria
-        function selezionaCategoria(cat) {
-            categoriaSelezionata = cat;
-            
-            // Aggiorna lo stato visivo dei bottoni
-            const bottoni = ['all', 'tcg', 'modellismo', 'tavolo'];
-            bottoni.forEach(b => {
-                const btn = document.getElementById(`btn-${b}`);
-                if (b === cat) {
-                    btn.className = "px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-akiba-500 text-white shadow-md shadow-akiba-500/10";
-                } else {
-                    btn.className = "px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-white text-stone-600 border border-stone-200 hover:bg-stone-50";
-                }
-            });
-
-            filtraGiochi();
-        }
-
         // Filtra giochi combinando categoria e input di ricerca
         function filtraGiochi() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            
             const risultati = giochi.filter(gioco => {
-                const matchaCategoria = (categoriaSelezionata === 'all' || gioco.categoria === categoriaSelezionata);
-                const matchaRicerca = (
-                    gioco.nome.toLowerCase().includes(query) || 
-                    gioco.breveDesc.toLowerCase().includes(query) || 
-                    gioco.formati.toLowerCase().includes(query)
-                );
-                return matchaCategoria && matchaRicerca;
+                return (categoriaSelezionata === 'all' || gioco.categoria === categoriaSelezionata);
             });
-
             renderizzaGiochi(risultati);
         }
 
-        // Gestione della Modale Dettaglio
         function apriModale(id) {
             const gioco = giochi.find(g => g.id === id);
             if (!gioco) return;
@@ -393,6 +399,16 @@
             document.getElementById('modalCategory').innerText = gioco.categoria.toUpperCase();
             document.getElementById('modalDesc').innerText = gioco.descCompleta;
             
+            // Inserisci il logo dinamico con lo stesso meccanismo di fallback anche nella modale
+            const logoContainer = document.getElementById('modalLogoContainer');
+            const nomeSicuro = gioco.nome.replace(/'/g, "\\'");
+            logoContainer.innerHTML = `
+                <img src="${gioco.logo || 'missing-logo'}" 
+                     onerror="handleLogoError(this, '${nomeSicuro}', '${gioco.categoria}')" 
+                     alt="Logo ${gioco.nome}" 
+                     class="h-8 w-auto object-contain">
+            `;
+
             // Gestione orari e formati
             if (gioco.formati) {
                 document.getElementById('modalFormatsContainer').style.display = 'block';
